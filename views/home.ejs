@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap" rel="stylesheet"> 
+
+        <!-- Icon Font Stylesheet -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+        <!-- Libraries Stylesheet -->
+        <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="css/style2.css" rel="stylesheet">
+<style>
+    body {
+  background: url('/uploads/white.gif') center/cover fixed no-repeat;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1; /* Set a higher z-index */
+    }
+
+    /* Style for the pop-up */
+    #popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      z-index: 2; /* Set a higher z-index */
+    }
+
+
+</style>
+
+</head>
+
+<body>
+  
+  <nav class="navbar navbar-expand-md bg-primary navbar-dark" style="">
+    <div class="container"> <a class="navbar-brand" href="#">
+      <img src="\uploads\myarogya.png" height="105px">
+        
+      </a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar16">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar16">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"> <a class="nav-link" href="\home">HOME</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="\workout2">WORKOUT</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="\diet">DIET</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="\stats">STATS</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="\profile">PROFILE</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="\aboutus">ABOUT US</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="\login">LOG OUT</a> </li>
+        </ul>
+      </div>
+      <span style="color: white;font-weight: bolder;"><%= user.username %></span>
+    </div>
+    
+  </nav>
+
+
+  <div id="overlay"></div>
+
+  <!-- Pop-up content -->
+  
+  <% const cd = user.currentDay ; %>
+  <% if (cd% 2==0) { %>
+    <div id="popup" style="border-radius: 20px;">
+      <div class="py-5" style="background-image: url(/uploads/white.gif); background-position: right bottom;  background-size: cover; background-repeat: repeat; background-attachment: fixed;" >
+        <div class="container">
+          <div class="row">
+            <div class="ml-auto p-3 col-md-2 bg-white"> <img class="img-fluid d-block rounded-circle" src="/uploads/myarogya.png"> </div>
+            <div class="p-3 col-md-7 mr-auto bg-white text-dark">
+              <div class="blockquote mb-0">
+                <p><i>"All our dreams can come true if we have the courage to pursue them."</i></p>
+                <div class="blockquote-footer"> <b>Walt Disney</b>, Film Producer</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button onclick="closePopup()" style="background-color: aliceblue;color: #81C408;border:solid 0px ">Close</button>
+    </div>
+    <% } else if(cd%3==0){ %>
+      <!-- or any default value you want to show when calories are null -->
+      <div id="popup" style="border-radius: 20px;">
+        <div class="py-5" style="background-image: url(/uploads/white.gif); background-position: right bottom;  background-size: cover; background-repeat: repeat; background-attachment: fixed;" >
+          <div class="container">
+            <div class="row">
+              <div class="ml-auto p-3 col-md-2 bg-white"> <img class="img-fluid d-block rounded-circle" src="/uploads/myarogya.png"> </div>
+              <div class="p-3 col-md-7 mr-auto bg-white text-dark">
+                <div class="blockquote mb-0">
+                  <p><i>"Just believe in yourself. Even if you don't, just pretend that you do and at some point , you will."</i></p>
+                  <div class="blockquote-footer"> <b>Venus Williams</b>, American Tennis Player</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button onclick="closePopup()" style="background-color: aliceblue;color: #81C408;border:solid 0px ">Close</button>
+      </div>
+    <% } else { %>
+      <!-- or any default value you want to show when calories are null -->
+      <div id="popup" style="border-radius: 20px;">
+        <div class="py-5" style="background-image: url(/uploads/white.gif); background-position: right bottom;  background-size: cover; background-repeat: repeat; background-attachment: fixed;" >
+          <div class="container">
+            <div class="row">
+              <div class="ml-auto p-3 col-md-2 bg-white"> <img class="img-fluid d-block rounded-circle" src="/uploads/myarogya.png"> </div>
+              <div class="p-3 col-md-7 mr-auto bg-white text-dark">
+                <div class="blockquote mb-0">
+                  <p><i>"When you have a clear vision of your goal, it's easier to take the first step towards it.."</i></p>
+                  <div class="blockquote-footer"> <b>LL Cool J</b>, American Rapper, Song writer, Producer</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button onclick="closePopup()" style="background-color: aliceblue;color: #81C408;border:solid 0px ">Close</button>
+      </div>
+    <% } %>
+
+
+  <div class="py-5">
+    <div class="container" style="box-shadow: 0 0 5px black;">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="carousel slide" data-ride="carousel" id="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active"> <img class="d-block img-fluid w-100" src="/uploads/c1.jpg" style="object-fit: cover;height: 600px;width: 800px;">
+                <div class="carousel-caption">
+                  
+                </div>
+              </div>
+              <div class="carousel-item"> <img class="d-block img-fluid w-100"  src="/uploads/c6.jpg"  style="object-fit: cover;height: 600px;width: 800px;">
+                <div class="carousel-caption">
+                  
+                </div>
+              </div>
+              <div class="carousel-item"> <img class="d-block img-fluid w-100"  src="/uploads/c3.jpg"  style="object-fit: cover;height: 600px;width: 800px;">
+                <div class="carousel-caption">
+                  
+                </div>
+              </div>
+            </div> <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev"> <span class="carousel-control-prev-icon"></span> <span class="sr-only">Previous</span> </a> <a class="carousel-control-next" href="#carousel" role="button" data-slide="next"> <span class="carousel-control-next-icon"></span> <span class="sr-only">Next</span> </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-5 text-white" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, .75), rgba(0, 0, 0, .75)), url(https://static.pingendo.com/cover-bubble-dark.svg);  background-position: center center, center center;  background-size: cover, cover;  background-repeat: repeat, repeat;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h1 class="text-light mb-4">We provide all these</h1>
+        </div>
+      </div>
+      <div class="row text-dark">
+        <div class="col-lg-4 p-3">
+          <div class="card text-center">
+            <div class="card-body p-4">
+              <h3>Workout</h3>
+              <p class="my-3 lead">A good workout routine will help you build your body healthy</p> <a class="btn btn-link" href="/workout2">Read more</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 p-3">
+          <div class="card text-center">
+            <div class="card-body p-4">
+              <h3>Diet</h3>
+              <p class="my-3 lead">What you eat is what you are. We can track your South Indian diet and help to you to have a proper diet</p> <a class="btn btn-link" href="/diet">Read more</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 p-3">
+          <div class="card text-center">
+            <div class="card-body p-4">
+              <h3>Stats</h3>
+              <p class="my-3 lead">Who will know are you doing it right? We know it. And we will show your perfomance</p> <a class="btn btn-link" href="/stats">Read more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h1>Things to follow</h1>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        
+        <div class="col-lg-4 col-md-6 p-4">
+          <div class="row">
+            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block"  src="/uploads/Images/w11.jpg" style="object-fit: cover;height: 100px;width: 100px;"> </div>
+            <div class="col-9">
+              <p class="lead mb-1"> <b>#1</b> </p>
+              <p class="mb-0">Wake up early in the morning. Get more sunlight and fresh air daily.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 p-4">
+          <div class="row">
+            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block"  src="/uploads/Images/w12.jpg" style="object-fit: cover;height: 100px;width: 100px;"> </div>
+            <div class="col-9">
+              <p class="lead mb-1"> <b>#2</b> </p>
+              <p class="mb-0">Do not skip breakfast. Have healthy breakfast.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 p-4">
+          <div class="row">
+            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block"  src="/uploads/Images/w1.jpg" style="object-fit: cover;height: 100px;width: 100px;"> </div>
+            <div class="col-9">
+              <p class="lead mb-1"> <b>#3</b> </p>
+              <p class="mb-0">Drink plenty of water. Atleast 3 liters per day.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 p-4">
+          <div class="row">
+            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block"  src="/uploads/Images/w15.jpg" style="object-fit: cover;height: 100px;width: 100px;"> </div>
+            <div class="col-9">
+              <p class="lead mb-1"> <b>#4</b> </p>
+              <p class="mb-0">Base your meals on higher fibre starchy carbohydrates.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 p-4">
+          <div class="row">
+            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block"  src="/uploads/Images/w9.jpg" style="object-fit: cover;height: 100px;width: 100px;"> </div>
+            <div class="col-9">
+              <p class="lead mb-1"> <b>#5</b> </p>
+              <p class="mb-0">Cut down on saturated fat and sugar.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 p-4">
+          <div class="row">
+            <div class="col-3 p-0 d-flex align-items-center"> <img class="img-fluid d-block"  src="/uploads/Images/w10.jpg" style="object-fit: cover;height: 100px;width: 100px;"> </div>
+            <div class="col-9">
+              <p class="lead mb-1"> <b>#6</b> </p>
+              <p class="mb-0">Eat lots of fruits and vegetables.</p>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-6 p-3"> <img class="img-fluid d-block" src="/uploads/Images/w5.jpg" style="object-fit: cover;height: 300px;width: 300px;"> </div>
+        <div class="col-md-3 col-6 p-3"> <img class="img-fluid d-block" src="/uploads/Images/w18.jpg" style="object-fit: cover;height: 300px;width: 300px;"> </div>
+        <div class="col-md-3 col-6 p-3"> <img class="img-fluid d-block" src="/uploads/Images/w19.jpg" style="object-fit: cover;height: 300px;width: 300px;"> </div>
+        <div class="col-md-3 col-6 p-3"> <img class="img-fluid d-block" src="/uploads/Images/w20.jpg" style="object-fit: cover;height: 300px;width: 300px;"> </div>
+          
+      </div>
+    </div>
+  </div>
+  <div class="py-3">
+    <div class="container">
+      <div class="row">
+        
+        <div class="col-lg-3 col-6 p-3">
+          <h5> <b>Creators</b> </h5>
+          <ul class="list-unstyled">
+            <li> <a href="#">Yohesh Babu.K.R</a> </li>
+            <li> <a href="#">Ganga Sowbhakya Lakshmi</a> </li>
+            <li> <a href="#">Lakshanya</a> </li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 p-3">
+          <h5> <b>About</b> </h5>
+          <p class="mb-0"> This is a South Indian Fitness website which provides you food and diet schedule with report.</p>
+        </div>
+        
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p class="mb-0 mt-2">© 23MX</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    // Function to show the overlay and pop-up
+    function showPopup() {
+      document.getElementById('overlay').style.display = 'block';
+      document.getElementById('popup').style.display = 'block';
+    }
+
+    // Function to close the overlay and pop-up
+    function closePopup() {
+      document.getElementById('overlay').style.display = 'none';
+      document.getElementById('popup').style.display = 'none';
+    }
+
+    // Attach the showPopup function to the window.onload event
+    window.onload = function () {
+      showPopup();
+    };
+  </script>
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous" style=""></script>
+  </body>
+
+</html>

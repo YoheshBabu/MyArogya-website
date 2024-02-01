@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap" rel="stylesheet"> 
+
+  <!-- Icon Font Stylesheet -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Libraries Stylesheet -->
+  <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+
+  <!-- Customized Bootstrap Stylesheet -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Template Stylesheet -->
+  <link href="css/style2.css" rel="stylesheet">
+  <style>
+    body {
+  background: url('/uploads/white.gif') center/cover fixed no-repeat;
+  font-family: 'Open Sans', sans-serif;
+}
+img{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+
+</style>
+
+
+  
+</head>
+
+<body>
+  
+  <nav class="navbar navbar-expand-md bg-primary navbar-dark" style="">
+    <div class="container"> <a class="navbar-brand" href="#">
+      <img src="\uploads\myarogya.png" height="105px" style="border: 0px;box-shadow: none;">
+        
+      </a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar16">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar16">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"> <a class="nav-link" href="\home">HOME</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="\workout2">WORKOUT</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="\diet">DIET</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="\stats">STATS</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="\profile">PROFILE</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="\aboutus">ABOUT US</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="\login">LOG OUT</a> </li>
+        </ul>
+      </div>
+      <span style="color: white;font-weight: bolder;"><%= user.username %></span>
+    </div>
+    
+  </nav>
+  
+  <div class="py-5 text-center" style="	background-image: url(pics/abs.jpg);	background-position: top left;	background-size: 100%;	background-repeat: repeat;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9 p-3">
+          <h1 class="mb-0" style="font-size: 100px;"><%=user.username %>'s DAY <%=user.currentDay %></h1>
+        </div>
+
+        <form action="/updateCurrentDay" method="post" id="updateCurrentDay">
+        
+      
+
+
+        <div class="col-md-3 align-items-center d-flex justify-content-center p-3"> 
+          <input type="submit" class="btn btn-primary btn-lg" form="updateCurrentDay" value="Next Day"> </div>
+      
+      </form>
+      </div>
+    </div>
+  </div>
+  <div class="py-5" style="background-color: #ffffff;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>Track Your Diet</h1>
+          <p class="mb-4">Add some proteins to your diet. It helps you to build body easily. Some protein rich food are Channa masala, Ground nut chutney, Boiled egg, Soya biriyani and meat dishes. Add these to your meals atleast twice a week. Now lets track your diet. You need to answer these questions every time you eat something. Because every single gram of food counts. Have healthy diet and don't eat junk foods. Eat only the food provided in our list. </p>
+          <div class="row">
+            <div class="col-md-3 order-3 order-md-1"> <img class="img-fluid d-block" src="/uploads/food/ven-pongal.jpg" style="object-fit: cover;height: 300px;width: 300px;"> </div>
+            <div class="col-md-6 col-8 d-flex flex-column justify-content-center p-3 order-1 order-md-2">
+              <p>What did you eat?</p>
+              <div class="btn-group">
+              <form action="/addDiet/<%= user._id %>" method="post" id="addDiet">
+                <select class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style="width: 275px;" id="calories" name="calories"> 
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="4" > Dosa </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="0.56" > Idli </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="3"> Paneer Fry </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="3"> Rava Upma </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="4"> Pongal </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="3"> Medhu Vada </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="3"> Chicken Biriyani </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="4"> Brown rice </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="4"> Mochai Gravy </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="0.7"> Appam </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="2.5"> Egg Rice </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="5"> Poori </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="0.3"> Salad </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="0.52"> Apple </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="2"> Curd Rice </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="5"> Rava Kichadi </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="3"> Idiyappam </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="4"> Upma </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="2"> Aviyal </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="4"> Puttu </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="15"> Sambhar </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="0.8"> Rasam </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="0.6"> Tomato Soup </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="0.8"> Butter Milk </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="2"> Tamarid Rice </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="4"> Rava Dosa </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="4"> Paniyaram </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="4.6"> Pal Payasam </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="6"> Veg Kuruma </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="4"> Coconut Rice </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="2"> Kerala Fish Curry </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="4"> Malabar Biriyani </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="5"> Kothu Parotta </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="4"> Kozhikoda Halwa</option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="9"> Kerala Beef Fry </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="4"> Kari Dosa </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="8"> Kara Kuzhambu </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="4"> Podi Idli </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="2"> Mano Rice </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="4"> Ragi Mudde </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="2"> Mutton Sukka </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="9"> Aviyal </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="1"> Vazhakka Podimas </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="4"> Kalan </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="4"> Kollu Rasam </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="4"> Udupi Sambhar </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="4"> Channa Sundal </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="12"> Nei Appam </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="1"> Cabbage Thoran </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="2"> Masala Dosa </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="2"> Aviyal </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="3"> Uthappam </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="4"> Chutney (Any)</option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="8"> Bisi Bele Bath </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="5"> Chana masala </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="2"> Vangi Bath </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="4"> Akki Roti </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="2"> Neer Dosa </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="4"> Kadala Curry </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="9"> Karimeen Polichathu </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="4"> Kerala Sadya </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="4"> Kerala Parotta </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="4"> Pesarattu </option>
+                  <option class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="4"> Mysore Pak </option>
+                </select>
+                
+            
+              </div>
+              <p>How much did you eat?</p>
+              
+                <div class="input-group" style="width: 300px;">
+                  <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Quantity (in Grams)"  id="quantity" name="quantity" style="width: 10px;border-radius: 10px;">
+                  <br>
+                  
+                </div>
+                <br>
+                <p>What is your weight today?</p>
+                <div class="input-group" style="width: 300px;">
+                  
+                  <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Weight (in Kilograms)"  id="weight" name="weight" style="width: 10px;border-radius: 10px;">
+                  
+                  <input type="hidden" id="meal" name="meal" readonly style="opacity: 0;">
+
+                </div>
+              </form>
+            </div>
+            <div class="col-md-2 col-4 d-flex flex-column align-items-center justify-content-center order-2 order-md-2 p-3" style="	background-image: linear-gradient(to bottom, white, white);	background-position: top left;	background-size: 100%;	background-repeat: repeat;"> 
+            <input type="submit" class="btn btn-primary mb-3" href="#" style="	background-image: linear-gradient(to bottom, #81C408, #81C408);	background-position: top left;	background-size: 100%;	background-repeat: repeat;	box-shadow: 0px 0px 4px  white;width: 200px;height: 50px;" value="ADD DIET" form="addDiet" > </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="p-3 col-md-8">
+              <div class="p-3 col-md-8">
+                <div class="col-md-4 col-lg-3 offset-lg-1"> </div>
+                
+                <h3 style="font-size: 50px;">Calories to consume today:
+                  <% if (userCals && userCals.calories) { %>
+                    
+                  <% } else { %>
+                    <!-- or any default value you want to show when calories are null -->
+                  <% } %>
+                </h3>
+                <% const h = mc - uc; %>
+                <% if (mc > uc) { %>
+                  <% if (h > 1000) { %>
+                    <!-- Your logic here -->
+                    <h1 style="color: red;font-size: 70px;"><%= h %></h1>
+                  <% } else if (h > 500) { %>
+                    <!-- Additional logic here -->
+                    <h1 style="color: orange;font-size: 70px;"><%= h %></h1>
+                  <% } else { %>
+                    <!-- Other logic here -->
+                    <h1 style="color: rgb(200, 255, 0);font-size: 70px;"><%= h %></h1>
+                  <% } %>
+                <% } else { %>
+                  <!-- Logic when mc is not greater than uc -->
+                  <h1 style="color: green;">You have done for today</h1>
+                <% } %>
+
+                
+                
+              </div>
+              
+            <div class="col-md-4 col-lg-3 offset-lg-1"> <img class="img-fluid d-block" src="/uploads/gir.gif" style="box-shadow: none;height: 150%;"> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-5">
+    <div class="container" style="font-size: 35px;">
+      <div class="row">
+        <div class="col-md-12">
+          
+          <ul class="list-group" id="mealList">
+            <a href="#" class="list-group-item list-group-item-action active"> Your Diet Today </a>
+            <% if (userMeals && userMeals.meals) { %>
+              <% userMeals.meals.forEach(meal => { %>
+               
+                <li href="#" class="list-group-item list-group-item-action"> <%= meal %> </li>
+              <% }); %>
+            <% } else { %>
+              
+            <% } %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="text-center mx-auto col-md-8">
+          <h1 class="mb-3">Here is a tip for you</h1>
+          <p class="lead">These are the protein rich foods you can eat to have a healthy life style. Try these for a better result. Remember ! The food you eat decides your health more than your workout. So eat healthy and responsibly.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-3 col-md-6 p-3"> <img class="img-fluid d-block" src="/uploads/food/curd rice.jpg" style="object-fit: cover;height: 300px;width: 300px;" > </div>
+        <div class="col-lg-3 col-md-6 p-3"> <img class="img-fluid d-block" src="/uploads/food/brown rice.jpg" style="object-fit: cover;height: 300px;width: 300px;" > </div>
+        <div class="col-lg-3 col-md-6 p-3"> <img class="img-fluid d-block" src="/uploads/food/idiyappam.jpg" style="object-fit: cover;height: 300px;width: 300px;" > </div>
+        <div class="col-lg-3 col-md-6 p-3"> <img class="img-fluid d-block" src="/uploads/food/poori.jpg" style="object-fit: cover;height: 300px;width: 300px;" > </div>
+        <div class="col-lg-3 col-md-6 p-3"> <img class="img-fluid d-block" src="/uploads/food/rajma-chawal.jpg" style="object-fit: cover;height: 300px;width: 300px;" > </div>
+        <div class="col-lg-3 col-md-6 p-3"> <img class="img-fluid d-block" src="/uploads/food/rasam.jpg" style="object-fit: cover;height: 300px;width: 300px;" > </div>
+        <div class="col-lg-3 col-md-6 p-3"> <img class="img-fluid d-block" src="/uploads/food/roti.jpg" style="object-fit: cover;height: 300px;width: 300px;" > </div>
+        <div class="col-lg-3 col-md-6 p-3"> <img class="img-fluid d-block" src="/uploads/food/salad.jpg" style="object-fit: cover;height: 300px;width: 300px;" > </div>
+        <div class="col-lg-3 col-md-6 p-3"> <img class="img-fluid d-block" src="/uploads/food/tamarind rice.jpg" style="object-fit: cover;height: 300px;width: 300px;" > </div>
+        <div class="col-lg-3 col-md-6 p-3"> <img class="img-fluid d-block" src="/uploads/food/ven-pongal.jpg" style="object-fit: cover;height: 300px;width: 300px;" > </div>
+        <div class="col-lg-3 col-md-6 p-3"> <img class="img-fluid d-block" src="/uploads/food/sambar.jpg" style="object-fit: cover;height: 300px;width: 300px;" > </div>
+        <div class="col-lg-3 col-md-6 p-3"> <img class="img-fluid d-block" src="/uploads/food/buttermilk.jpg" style="object-fit: cover;height: 300px;width: 300px;" > </div>
+
+        
+      </div>
+    </div>
+  </div>
+  <div class="py-3">
+    <div class="container">
+      <div class="row">
+        <div class="py-3">
+          <div class="container">
+            <div class="row">
+              
+              <div class="col-lg-3 col-6 p-3">
+                <h5> <b>Features</b> </h5>
+                <ul class="list-unstyled">
+                  <li> <a href="/workout2">Workout</a> </li>
+                  <li> <a href="/diet">Diet</a> </li>
+                  <li> <a href="/stats">Stat</a> </li>
+                </ul>
+              </div>
+              <div class="col-lg-3 col-md-6 p-3">
+                <h5> <b>About</b> </h5>
+                <p class="mb-0"> South Indian fitness App with diet, workout and statistic report.</p>
+              </div>
+              
+            <div class="row">
+              <div class="col-md-12 text-center">
+                <p class="mb-0 mt-2">© 23MX</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p class="mb-0 mt-2">© 23MX PSG TECH</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous" style=""></script>
+  
+  <script>
+    // Function to get the current day from local storage
+   
+
+    // Function to add a diet item to the list and local storage
+    
+
+    // Function to clear the diet list and update the current day
+    
+    // Retrieve current day from local storage and update the displayed current day
+    
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+const mealList = document.getElementById('append1');
+const mymeal=document.getElementById('meal');
+const userMeals = <%= userMeals ? JSON.stringify(userMeals.meals) : 'null' %>;
+const cal=document.getElementById('calories');
+mymeal.value=cal.textContent;
+
+if (userMeals) {
+userMeals.forEach(meal => {
+  const listItem = document.createElement('li');
+  listItem.textContent = cal.textContent;
+  
+  mealList.appendChild(listItem);
+});
+} else {
+// Display a message or handle the case when userMeals is not available
+console.log('No meals available.');
+}
+});
+
+
+var w=parseInt(user.weight);
+var h=user.height;
+var a=user.age;
+var bmr=(10*w)+(6.25*h)-(5*a)+5;
+var mc=bmr*1.25;
+document.getElementById('aint').innerHTML="a";
+console.log(mc);
+  </script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+  <script>
+      // jQuery code to update the value of the 'selectedMealText' input field
+      $(document).ready(function() {
+          $('#calories').change(function() {
+              var selectedOptionText = $(this).find('option:selected').text();
+              $('#meal').val(selectedOptionText);
+          });
+      });
+      
+      async function updateProgressBar() {
+            try {
+                // Fetch the user's calories for the day from the server
+                const response = await fetch('/getCalories'); // Replace with your server endpoint
+                const data = await response.json();
+
+                // Get the progress bar element
+                const progressBar = document.getElementById("myProgressBar");
+
+                // Update the value of the progress bar
+                progressBar.value = data.calories; // Assuming data.calories contains the user's calories value
+            } catch (error) {
+                console.error('Error fetching calories:', error);
+            }
+        }
+
+        // Initial update when the page loads
+        window.onload = updateProgressBar;
+
+  </script>
+  </body>
+
+</html>

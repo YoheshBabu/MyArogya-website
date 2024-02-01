@@ -1,0 +1,62 @@
+<!-- stat.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Stat Page</title>
+    <!-- Include Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Stat Page, <%= username %>!</h1>
+        
+        <!-- Canvas element for the line graph -->
+        <canvas id="caloriesChart" width="400" height="200"></canvas>
+
+        <p>Display user stats or other related content here.</p>
+    </div>
+
+    <!-- Script to populate and display the line graph -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Fetch data from the server and populate the chart
+            fetch('/getDietData')
+                .then(response => response.json())
+                .then(data => {
+                    // Extract data for Chart.js
+                    const days = data.map(entry => entry.day);
+                    const calories = data.map(entry => entry.calories);
+
+                    // Get the canvas element
+                    const ctx = document.getElementById('caloriesChart').getContext('2d');
+
+                    // Create the line chart
+                    const chart = new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: days,
+                            datasets: [{
+                                label: 'Calories Intake',
+                                borderColor: 'rgb(75, 192, 192)',
+                                data: calories,
+                                fill: false
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                x: {
+                                    type: 'linear',
+                                    position: 'bottom'
+                                }
+                            }
+                        }
+                    });
+                })
+                .catch(error => console.error('Error fetching diet data:', error));
+        });
+    </script>
+</body>
+</html>

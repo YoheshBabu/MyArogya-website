@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+ 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap" rel="stylesheet">
+
+
+  <!-- Icon Font Stylesheet -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+
+  <!-- Libraries Stylesheet -->
+  <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+
+
+
+  <!-- Customized Bootstrap Stylesheet -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+
+  <!-- Template Stylesheet -->
+  <link href="css/style2.css" rel="stylesheet">
+    <style>
+        body{background-color: #81C408;}
+        body{background: url('/uploads/white.gif');
+      background-attachment: fixed;}
+      #q{background: url('/uploads/white.gif')}
+       
+       
+    </style>
+
+
+
+
+</head>
+
+
+<body>
+ 
+ 
+  <nav class="navbar navbar-expand-md bg-primary navbar-dark" style="">
+    <div class="container"> <a class="navbar-brand" href="#">
+      <img src="\uploads\myarogya.png" height="105px">
+       
+      </a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar16">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar16">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"> <a class="nav-link" href="\home">HOME</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="\workout2">WORKOUT</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="\diet">DIET</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="\stats">STATS</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="\profile">PROFILE</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="\aboutus">ABOUT US</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="\login">LOG OUT</a> </li>
+        </ul>
+      </div>
+      <span style="color: white;font-weight: bolder;"><%= user.username %></span>
+    </div>
+   
+  </nav>
+
+
+  <div class="py-5 text-center" style=" background-image: url(pics/abs.jpg);  background-position: top left;  background-size: 100%;  background-repeat: repeat;">
+    <div class="container">
+      <div class="row" >
+        <div class="col-md-9 p-3" style=" background-image:  url(/public/uploads/bg.gif); background-position: top left, top left;  background-size: 100%, 100%;  background-repeat: repeat, repeat;">
+          <h1 class="mb-0" style="font-size: 100px;"><%=user.username %>'s DAY <%=user.currentDay %></h1>
+        </div>
+
+
+        <form action="/updateCurrentDay" method="post" id="updateCurrentDay">
+         
+      </form>
+
+
+        <div class="col-md-3 align-items-center d-flex justify-content-center p-3">
+           <input type="submit" class="btn btn-primary btn-lg" form="updateCurrentDay" style="color: white;background-color: rgb(61, 61, 61);" value="NEXT DAY"> </div>
+      </div>
+    </div>
+  </div>
+  <form action="/addWorkout/<%= user._id %>" method="post" id="addWorkout">
+  <div class="py-5" >
+    <div class="container">
+      <div class="row" >
+        <div class="col-md-12">
+          <div class="row" style="background-color: white;box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);" >
+            <div class="col-md-4 col-lg-3 order-2 order-md-1 p-0" >
+              <img class="img-fluid d-block"  src="/uploads/Gif/Shoulders/Back Supported Palms-In Shoulder Press.gif" style="width: 125%;"> </div>
+            <div class="d-flex flex-column justify-content-center p-3 col-md-8 offset-lg-1 align-items-start order-1 order-md-2" >
+              <h3>Back Supported Palms-In Shoulder Press </h3>
+              <p class="mb-3">10 Reps x 4 Sets</p>
+             <p class="mb-3">
+                The Back Supported Palms-In Shoulder Press is a weightlifting exercise where you sit with back support and press weights overhead with your palms facing inward. </p>
+              <label class="custom-checkbox">
+                <input type="checkbox" id="wor1" name="wor1">
+                <span class="checkmark"></span>
+               
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="py-5" >
+    <div class="container">
+      <div class="row" >
+        <div class="col-md-12">
+          <div class="row" style="background-color: white;box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);" >
+            <div class="col-md-4 col-lg-3 order-2 order-md-1 p-0" >
+              <img class="img-fluid d-block"  src="/uploads/Gif/Shoulders/Back Supported Shoulder Press.gif" style="width: 125%;"> </div>
+            <div class="d-flex flex-column justify-content-center p-3 col-md-8 offset-lg-1 align-items-start order-1 order-md-2" >
+              <h3> Back Supported Shoulder Press </h3>
+              <p class="mb-3">10 Reps x 4 Sets</p>
+              <p class="mb-3">"
+                The Back Supported Shoulder Press is a weightlifting exercise where you sit with back support and press weights overhead, targeting the shoulder muscles while maintaining stability.
+                </p>  
+              <label class="custom-checkbox">
+                <input type="checkbox" id="workout_1" name="workout_1" value="1">
+                <span class="checkmark"></span>
+               
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="py-5" >
+    <div class="container">
+      <div class="row" >
+        <div class="col-md-12">
+          <div class="row" style="background-color: white;box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);" >
+            <div class="col-md-4 col-lg-3 order-2 order-md-1 p-0" >
+              <img class="img-fluid d-block"  src="/uploads/Gif/Shoulders/Bent-Over One-Arm Deltoid Raise.gif" style="width: 125%;"> </div>
+            <div class="d-flex flex-column justify-content-center p-3 col-md-8 offset-lg-1 align-items-start order-1 order-md-2" >
+              <h3> Bent-Over One-Arm Deltoid Raise </h3>
+              <p class="mb-3">10 Reps x 4 Sets</p>
+              <p class="mb-3">
+                The Bent-Over One-Arm Deltoid Raise is an exercise where you bend at the waist, keeping your back straight, and lift a dumbbell with one arm to the side, targeting the deltoid (shoulder) muscles.</p>
+              <label class="custom-checkbox">
+                <input type="checkbox" id="workout_2" name="workout_2" value="1">
+                <span class="checkmark"></span>
+               
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="py-5" >
+    <div class="container">
+      <div class="row" >
+        <div class="col-md-12">
+          <div class="row" style="background-color: white;box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);" >
+            <div class="col-md-4 col-lg-3 order-2 order-md-1 p-0" >
+              <img class="img-fluid d-block"  src="/uploads/Gif/Shoulders/Bent-Over Rear Deltoid Raise.gif" style="width: 125%;"> </div>
+            <div class="d-flex flex-column justify-content-center p-3 col-md-8 offset-lg-1 align-items-start order-1 order-md-2" >
+              <h3> Bent-Over Rear Deltoid Raise </h3>
+              <p class="mb-3">10 Reps x 4 Sets</p>
+              <p class="mb-3">
+                The Bent-Over Rear Deltoid Raise is a weightlifting exercise where you bend at the waist, keep your back straight, and lift weights to the side, targeting the rear deltoid muscles located at the back of your shoulders.</p>
+              <label class="custom-checkbox">
+                <input type="checkbox" id="workout_3" name="workout_3" value="1">
+                <span class="checkmark"></span>
+               
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="py-5" >
+    <div class="container">
+      <div class="row" >
+        <div class="col-md-12">
+          <div class="row" style="background-color: white;box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);" >
+            <div class="col-md-4 col-lg-3 order-2 order-md-1 p-0" >
+              <img class="img-fluid d-block"  src="/uploads/Gif/Shoulders/Front Raise.gif" style="width: 125%;"> </div>
+            <div class="d-flex flex-column justify-content-center p-3 col-md-8 offset-lg-1 align-items-start order-1 order-md-2" >
+              <h3> Front Raise </h3>
+              <p class="mb-3">10 Reps x 4 Sets</p>
+              <p class="mb-3">
+               The Front Raise is a weightlifting exercise that primarily targets the front (anterior) part of the shoulder muscles. In this exercise, you lift a weight (dumbbell or barbell) directly in front of you, keeping your arms straight. It's commonly used to strengthen and tone the anterior deltoids.</p>
+              <label class="custom-checkbox">
+                <input type="checkbox" id="workout_4" name="workout_4" value="1">
+                <span class="checkmark"></span>
+               
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="py-5" >
+    <div class="container">
+      <div class="row" >
+        <div class="col-md-12">
+          <div class="row" style="background-color: white;box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);" >
+            <div class="col-md-4 col-lg-3 order-2 order-md-1 p-0" >
+              <img class="img-fluid d-block"  src="/uploads/Gif/Shoulders/Lateral Raise.gif" style="width: 125%;"> </div>
+            <div class="d-flex flex-column justify-content-center p-3 col-md-8 offset-lg-1 align-items-start order-1 order-md-2" >
+              <h3> Lateral Raise</h3>
+              <p class="mb-3">10 Reps x 4 Sets</p>
+              <p class="mb-3">
+                The Lateral Raise is a weightlifting exercise that targets the lateral (side) part of the shoulder muscles. In this exercise, you typically lift weights (dumbbells) to the side, away from your body, keeping your arms straight or slightly bent. Lateral Raises are effective for isolating and strengthening the lateral deltoids, contributing to overall shoulder development.</p>
+              <label class="custom-checkbox">
+                <input type="checkbox" id="workout_5" name="workout_5" value="1">
+                <span class="checkmark"></span>
+               
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-5" >
+    <div class="container">
+      <div class="row" >
+        <div class="col-md-12">
+          <div class="row" style="background-color: white;box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);" >
+            <div class="col-md-4 col-lg-3 order-2 order-md-1 p-0" >
+              <img class="img-fluid d-block"  src="/uploads/Gif/Shoulders/Palms-In Alternated Shoulder Press.gif" style="width: 125%;"> </div>
+            <div class="d-flex flex-column justify-content-center p-3 col-md-8 offset-lg-1 align-items-start order-1 order-md-2" >
+              <h3> Palms-In Alternated Shoulder Press </h3>
+              <p class="mb-3">10 Reps x 4 Sets</p>
+              <p class="mb-3">
+                The Palms-In Alternated Shoulder Press is an exercise where you lift weights (dumbbells or other resistance) overhead while alternating between palms-in (facing each other) and palms-forward positions. This movement targets the shoulder muscles and can help enhance overall shoulder strength and stability.</p>
+              <label class="custom-checkbox">
+                <input type="checkbox" id="workout_6" name="workout_6" value="1">
+                <span class="checkmark"></span>
+               
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="py-5" >
+    <div class="container">
+      <div class="row" >
+        <div class="col-md-12">
+          <div class="row" style="background-color: white;box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);" >
+            <div class="col-md-4 col-lg-3 order-2 order-md-1 p-0" >
+              <img class="img-fluid d-block"  src="/uploads/Gif/Shoulders/Palms-In Shoulder Press.gif" style="width: 125%;"> </div>
+            <div class="d-flex flex-column justify-content-center p-3 col-md-8 offset-lg-1 align-items-start order-1 order-md-2" >
+              <h3> Palms-In Shoulder Press </h3>
+              <p class="mb-3">10 Reps x 4 Sets</p>
+              <p class="mb-3">
+                The Palms-In Shoulder Press is a weightlifting exercise where you press weights overhead with your palms facing inward, towards each other. This movement primarily targets the shoulder muscles and is often performed using dumbbells or a barbell. It's a variation of the shoulder press that may provide a different range of motion and muscle engagement compared to the traditional palms-forward grip</p>
+              <label class="custom-checkbox">
+                <input type="checkbox" id="workout_7" name="workout_7" value="1">
+                <span class="checkmark"></span>
+               
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="py-5" >
+    <div class="container">
+      <div class="row" >
+        <div class="col-md-12">
+          <div class="row" style="background-color: white;box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);" >
+            <div class="col-md-4 col-lg-3 order-2 order-md-1 p-0" >
+              <img class="img-fluid d-block"  src="/uploads/Gif/Shoulders/Push Press.gif" style="width: 125%;"> </div>
+            <div class="d-flex flex-column justify-content-center p-3 col-md-8 offset-lg-1 align-items-start order-1 order-md-2" >
+              <h3> Push Press</h3>
+              <p class="mb-3">10 Reps x 4 Sets</p>
+              <p class="mb-3">
+                The push press is a weightlifting exercise where you lift a barbell from shoulder height to overhead by using a combination of leg drive and upper body strength. </p>
+              <label class="custom-checkbox">
+                <input type="checkbox" id="workout_8" name="workout_8" value="1">
+                <span class="checkmark"></span>
+               
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</form>
+ 
+  <div class="py-5 text-center text-white" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.685), rgba(0, 0, 0, 0.701)), url(https://static.pingendo.com/cover-bubble-dark.svg); background-position: center center, center center;  background-size: cover, cover; background-repeat: repeat, repeat;">
+    <div class="container">
+      <div class="row">
+        <div class="mx-auto p-4 col-md-5">
+          <img src="\uploads\myarogya.png" height="105px">
+          <h1 style="text-shadow:0 0 1px white;">Completion</h1>
+          <p class="mb-4">Perform atleast 6 of the given workouts. Do not cheat. Perform with immense concentration.</p><input type="submit" class="btn btn-secondary" form="addWorkout" value="Add Workout">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-3">
+    <div class="container">
+      <div class="row">
+        <div class="py-3">
+          <div class="container">
+            <div class="row">
+              
+              <div class="col-lg-3 col-6 p-3">
+                <h5> <b>Features</b> </h5>
+                <ul class="list-unstyled">
+                  <li> <a href="/workout2">Workout</a> </li>
+                  <li> <a href="/diet">Diet</a> </li>
+                  <li> <a href="/stat">Stat</a> </li>
+                </ul>
+              </div>
+              <div class="col-lg-3 col-md-6 p-3">
+                <h5> <b>About</b> </h5>
+                <p class="mb-0"> South Indian fitness App with diet, workout and statistic report.</p>
+              </div>
+              
+            <div class="row">
+              <div class="col-md-12 text-center">
+                <p class="mb-0 mt-2">© 23MX</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p class="mb-0 mt-2">© 23MX PSG TECH</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous" style=""></script>
+  <style>
+    /* Paste the provided CSS code here */
+
+
+    /* Checkbox Animation */
+    .custom-checkbox {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+
+    .custom-checkbox input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+
+    .checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 55px;
+      width: 55px;
+      background-color: #81C408;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+
+    .custom-checkbox input:checked ~ .checkmark {
+      background-color: #81C408;
+    }
+
+
+    .checkmark:after {
+      content: "";
+      position: absolute;
+      display: none;
+      left: 15px;
+      top: 5px;
+      width: 20px;
+      height: 40px;
+      border: solid white;
+      border-width: 0 3px 3px 0;
+      transform: rotate(45deg);
+    }
+
+
+    .custom-checkbox input:checked ~ .checkmark:after {
+      display: block;
+    }
+
+
+    x{
+        background-image: url("/public/uploads/bg.gif");
+    }
+  </style>
+ 
+  </body>
+
+
+</html>
+

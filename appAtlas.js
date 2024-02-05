@@ -7,7 +7,23 @@ const session = require('express-session');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-mongoose.connect('mongodb://localhost:27017/ProjectMyArogya');
+const uri = "mongodb+srv://YoheshBabu:Yohesh%40007@cluster0.udzbkx5.mongodb.net/MyArogya?retryWrites=true&w=majority";
+
+const options = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+};
+
+mongoose.connect(uri, options)
+  .then(() => {
+    console.log('Connected to MongoDB Atlas');
+  })
+  .catch((error) => {
+    console.error('Error connecting to MongoDB Atlas:', error.message);
+  });
+
+
+
 
 const userSchema = new mongoose.Schema({
     email: String,
